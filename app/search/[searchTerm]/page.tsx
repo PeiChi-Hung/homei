@@ -8,14 +8,14 @@ const page = async ({ params: { searchTerm } }: Props) => {
 
   const price = await db.address.findFirst({ where: { address: displayTerm } });
 
-  if (!price) return notFound;
+  if (!price) return notFound();
 
   return (
     <div className="text-center">
       <h1>
-        Address: {displayTerm}, {price.suburb}, {price.state}
+        Address: {displayTerm}, {price?.suburb}, {price?.state}
       </h1>
-      <h1>Price: {price.sold_price}</h1>
+      <h1>Price: {price?.sold_price}</h1>
     </div>
   );
 };
