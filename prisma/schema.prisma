@@ -8,10 +8,11 @@ datasource db {
 }
 
 model Address {
-  id         Int    @id @default(autoincrement())
-  sold_price Int
-  address    String
-  suburb     String
-  state      String
-  post_code  Int
+  id           Int    @id @default(autoincrement())
+  sold_price   Int
+  address      String
+  suburb       String
+  state        String
+  post_code    Int
+  full_address String
 }
