@@ -13,7 +13,7 @@ import { useQuery } from "@tanstack/react-query";
 import debounce from "lodash.debounce";
 import axios from "axios";
 import { usePathname, useRouter } from "next/navigation";
-import { Address } from "@prisma/client";
+import { sample_address } from "@prisma/client";
 import { useOnClickOutside } from "@/app/hook/use-on-click-outside";
 
 interface SearchBarProps {}
@@ -39,7 +39,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
       if (!input) return [];
       // console.log("fetching");
       const { data } = await axios.get(`/api/search?q=${encodeURI(input)}`);
-      return data as Address[];
+      return data as sample_address[];
     },
     enabled: false,
   });

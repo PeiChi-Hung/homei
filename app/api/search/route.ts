@@ -5,9 +5,9 @@ export async function GET(req: Request) {
   const q = url.searchParams.get("q");
 
   if (!q) return new Response("Invalid query", { status: 400 });
-  const results = await prisma.address.findMany({
+  const results = await prisma.sample_address.findMany({
     where: {
-      full_address: { contains: q, mode: "insensitive" },
+      full_address: { contains: q },
     },
   });
   return new Response(JSON.stringify(results));

@@ -3,16 +3,17 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
-model Address {
-  id           Int    @id @default(autoincrement())
-  sold_price   Int
-  address      String
-  suburb       String
-  state        String
-  post_code    Int
-  full_address String
+model sample_address {
+  id              Int       @id @default(autoincrement())
+  sold_price      Int?     
+  address         String  
+  suburb          String  
+  state           String
+  postcode        Int
+  full_address    String
 }
+

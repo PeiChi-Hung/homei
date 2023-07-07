@@ -6,7 +6,9 @@ type Props = { params: { searchTerm: string } };
 const page = async ({ params: { searchTerm } }: Props) => {
   const displayTerm = decodeURI(searchTerm);
 
-  const price = await db.address.findFirst({ where: { address: displayTerm } });
+  const price = await db.sample_address.findFirst({
+    where: { address: displayTerm },
+  });
 
   if (!price) return notFound();
 
