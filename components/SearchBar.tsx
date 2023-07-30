@@ -8,7 +8,8 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/components/ui/Command";
+} from "./ui/Command";
+
 import { useQuery } from "@tanstack/react-query";
 import debounce from "lodash.debounce";
 import axios from "axios";
@@ -34,7 +35,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
     isFetched,
     isFetching,
   } = useQuery({
-    queryKey: ["search", input],
+    queryKey: ["search"],
     queryFn: async () => {
       if (!input) return [];
       // console.log("fetching");
